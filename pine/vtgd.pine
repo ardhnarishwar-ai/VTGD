@@ -204,12 +204,52 @@ calcTheta(S, K, sigma, d1, d2) =>
     (2 * math.sqrt(T))
 
 
-//==================================================
-// SECTION 05 : VTGD SAFETY ENGINE
-// Safety = (Intrinsic × |Delta|)
-//        + (Gamma × Vega × MomentumFactor)
-//        - (Decay × Vega)
-//==================================================
+//--------------------------------------------------
+// Intrinsic Value
+//--------------------------------------------------
+
+calcIntrinsic(S, K) =>
+    math.max(S - K, 0)
+
+//--------------------------------------------------
+// Decay
+//--------------------------------------------------
+
+calcDecay(theta) =>
+    math.abs(theta)
+
+//--------------------------------------------------
+// VTGD Safety Score
+//--------------------------------------------------
+
+calcSafety(S, K, delta, gamma, vega, theta) =>
+
+    intrinsic = calcIntrinsic(S, K)
+
+    decay = calcDecay(theta)
+
+    safety =
+          (intrinsic * math.abs(delta))
+        + (gamma * vega * momentumFactor)
+        - (decay * vega)
+
+    safety
+
+//--------------------------------------------------
+// Normalize Safety (0 - 100)
+//--------------------------------------------------
+
+calcSafetyPercent(score) =>
+
+    normalize(score, safetyThreshold)
+
+//--------------------------------------------------
+// Safety Label
+//--------------------------------------------------
+
+calcSafetyStatus(score) =>
+
+    safetyLabel(calcSafetyPercent(score))
 
 
 //==================================================
