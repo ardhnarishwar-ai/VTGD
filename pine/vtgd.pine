@@ -410,6 +410,35 @@ fvpColor =
 // Trend vs Diffusion
 // Opposite Diffusion Alert
 // Zero → Hero
+//--------------------------------------------------
+// Prediction Mode
+//--------------------------------------------------
+
+predictionMode =
+    trendBullish != diffusionBullish
+
+//--------------------------------------------------
+// Prediction Signal
+//--------------------------------------------------
+
+predictionSignal =
+    predictionMode ? "OPPOSITE" : "FOLLOW"
+
+//--------------------------------------------------
+// VTGD Mode
+//--------------------------------------------------
+
+vtgdMode =
+    predictionMode ?
+        "ZERO → HERO" :
+        safetyLabel(calcSafetyPercent(calcSafety(S, atmStrike, calcDelta(calcD1(S, atmStrike, iv)), calcGamma(S, iv, calcD1(S, atmStrike, iv)), calcVega(S, calcD1(S, atmStrike, iv)), calcTheta(S, atmStrike, iv, calcD1(S, atmStrike, iv), calcD2(calcD1(S, atmStrike, iv), iv))))) 
+
+//--------------------------------------------------
+// Prediction Color
+//--------------------------------------------------
+
+predictionColor =
+    predictionMode ? color.orange : color.lime
 //==================================================
 
 
