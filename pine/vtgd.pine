@@ -325,6 +325,44 @@ modeLabel =
 // SECTION 07 : PCR ENGINE (11 Strikes)
 //==================================================
 
+//--------------------------------------------------
+// PCR Inputs
+//--------------------------------------------------
+
+enablePCR = input.bool(true, "Enable PCR Engine", group="PCR")
+manualPCR = input.float(1.00, "Manual PCR", step=0.01, group="PCR")
+
+//--------------------------------------------------
+// PCR Value
+//--------------------------------------------------
+
+pcr = manualPCR
+
+//--------------------------------------------------
+// PCR Status
+//--------------------------------------------------
+
+pcrBullish = pcr > 1.20
+pcrBearish = pcr < 0.80
+pcrNeutral = not pcrBullish and not pcrBearish
+
+//--------------------------------------------------
+// PCR Label
+//--------------------------------------------------
+
+pcrLabel =
+     pcrBullish ? "BULLISH" :
+     pcrBearish ? "BEARISH" :
+     "NEUTRAL"
+
+//--------------------------------------------------
+// PCR Color
+//--------------------------------------------------
+
+pcrColor =
+     pcrBullish ? color.lime :
+     pcrBearish ? color.red :
+     color.orange
 
 //==================================================
 // SECTION 08 : FVP ENGINE (VWAP / Fair Value Price)
