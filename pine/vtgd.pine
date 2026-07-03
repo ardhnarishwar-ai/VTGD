@@ -146,13 +146,62 @@ getStrike(index) =>
     array.get(strikeList, index)
 
 
-//==================================================
-// SECTION 04 : GREEKS ENGINE
-// Delta
-// Gamma
-// Vega
-// Theta
-//==================================================
+//--------------------------------------------------
+// Time to Expiry (Years)
+//--------------------------------------------------
+
+T = expiryDays / 365.0
+
+//--------------------------------------------------
+// Risk Free Rate
+//--------------------------------------------------
+
+riskFree = 0.05
+
+//--------------------------------------------------
+// Implied Volatility
+//--------------------------------------------------
+
+iv = ta.stdev(math.log(close / close[1]), 30) * math.sqrt(252)
+
+//--------------------------------------------------
+// Normal Distribution
+//--------------------------------------------------
+
+normPDF(x) =>
+    math.exp(-0.5 * x * x) / math.sqrt(2 * math.pi)
+
+normCDF(x) =>
+    0.5 * (1 + math.erf(x / math.sqrt(2)))
+
+//--------------------------------------------------
+// Black-Scholes d1 / d2
+//--------------------------------------------------
+
+calcD1(S, K, sigma) =>
+    (math.log(S / K) + (riskFree + sigma * sigma / 2) * T) /
+    (sigma * math.sqrt(T))
+
+calcD2(d1, sigma) =>
+    d1 - sigma * math.sqrt(T)
+
+//--------------------------------------------------
+// Greeks
+//--------------------------------------------------
+
+calcDelta(d1) =>
+    normCDF(d1)
+
+calcGamma(S, sigma, d1) =>
+    normPDF(d1) /
+    (S * sigma * math.sqrt(T))
+
+calcVega(S, d1) =>
+    S * normPDF(d1) * math.sqrt(T)
+
+calcTheta(S, K, sigma, d1, d2) =>
+    -(S * normPDF(d1) * sigma) /
+    (2 * math.sqrt(T))
 
 
 //==================================================
