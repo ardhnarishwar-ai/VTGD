@@ -254,6 +254,63 @@ calcSafetyStatus(score) =>
 
 //==================================================
 // SECTION 06 : NW / DIFFUSION ENGINE
+//--------------------------------------------------
+// Price Momentum
+//--------------------------------------------------
+
+priceMomentum =
+    close - close[1]
+
+//--------------------------------------------------
+// Natural Weight (NW)
+//--------------------------------------------------
+
+nw =
+    gamma * vega
+
+//--------------------------------------------------
+// Diffusion Direction
+//--------------------------------------------------
+
+diffusionBullish =
+    nw >= 0
+
+//--------------------------------------------------
+// Trend Direction
+//--------------------------------------------------
+
+trendBullish =
+    priceMomentum >= 0
+
+//--------------------------------------------------
+// Trend vs Diffusion
+//--------------------------------------------------
+
+trendMatchesDiffusion =
+    trendBullish == diffusionBullish
+
+//--------------------------------------------------
+// Prediction Mode
+//--------------------------------------------------
+
+predictionMode =
+    not trendMatchesDiffusion
+
+//--------------------------------------------------
+// Dashboard Labels
+//--------------------------------------------------
+
+diffusionLabel =
+    diffusionBullish ? "BULLISH" : "BEARISH"
+
+trendLabel =
+    trendBullish ? "UP" : "DOWN"
+
+predictionLabel =
+    predictionMode ? "PREDICTION" : "DATA"
+
+modeLabel =
+    predictionMode ? "OPPOSITE" : "FOLLOW"
 //==================================================
 
 
