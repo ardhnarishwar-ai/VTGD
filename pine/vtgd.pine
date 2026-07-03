@@ -52,6 +52,60 @@ enablePrediction = input.bool(true, "Enable Prediction Engine", group=groupPredi
 // SECTION 02 : UTILITY FUNCTIONS
 //==================================================
 
+//-----------------------------------------------
+// Clamp Value
+//-----------------------------------------------
+clamp(value, minValue, maxValue) =>
+    math.max(minValue, math.min(maxValue, value))
+
+//-----------------------------------------------
+// Normalize Value (0 - 100)
+//-----------------------------------------------
+normalize(value, maxValue) =>
+    maxValue == 0 ? 0 : clamp((value / maxValue) * 100, 0, 100)
+
+//-----------------------------------------------
+// Progress Bar (████░░░░)
+//-----------------------------------------------
+progressBar(percent, blocks) =>
+    filled = math.round(clamp(percent, 0, 100) / 100 * blocks)
+    bar = ""
+
+    for i = 0 to blocks - 1
+        bar += i < filled ? "█" : "░"
+
+    bar
+
+//-----------------------------------------------
+// Safety Label
+//-----------------------------------------------
+safetyLabel(score) =>
+    score >= 80 ? "STRONG" :
+     score >= 60 ? "GOOD" :
+     score >= 40 ? "CAUTION" :
+     "DANGER"
+
+//-----------------------------------------------
+// Mode Label
+//-----------------------------------------------
+modeLabel(score) =>
+    score >= 80 ? "ZERO → HERO" :
+     score >= 60 ? "ROLLING" :
+     score >= 40 ? "WAIT" :
+     "EXIT FAST"
+
+//-----------------------------------------------
+// Round to 2 Decimal
+//-----------------------------------------------
+round2(value) =>
+    math.round(value * 100) / 100
+
+//-----------------------------------------------
+// YES / NO Flag
+//-----------------------------------------------
+yesNo(condition) =>
+    condition ? "YES" : "NO"
+
 
 //==================================================
 // SECTION 03 : STRIKE ENGINE (ATM ±5)
