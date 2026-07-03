@@ -47,6 +47,7 @@ showScanner = input.bool(true, "Show Strike Scanner", group=groupScanner)
 groupPrediction = "Prediction"
 
 enablePrediction = input.bool(true, "Enable Prediction Engine", group=groupPrediction)
+//==================================================
 
 //==================================================
 // SECTION 02 : UTILITY FUNCTIONS
@@ -105,8 +106,10 @@ round2(value) =>
 //-----------------------------------------------
 yesNo(condition) =>
     condition ? "YES" : "NO"
+//==================================================
 
-
+//==================================================
+// SECTION 03 : STRIKE ENGINE (ATM ±5)
 //--------------------------------------------------
 // Spot Price
 //--------------------------------------------------
@@ -144,8 +147,10 @@ for i = 1 to 5
 
 getStrike(index) =>
     array.get(strikeList, index)
+//==================================================
 
-
+//==================================================
+// SECTION 04 : GREEKS ENGINE
 //--------------------------------------------------
 // Time to Expiry (Years)
 //--------------------------------------------------
@@ -202,8 +207,10 @@ calcVega(S, d1) =>
 calcTheta(S, K, sigma, d1, d2) =>
     -(S * normPDF(d1) * sigma) /
     (2 * math.sqrt(T))
+//==================================================
 
-
+//==================================================
+// SECTION 05 : VTGD SAFETY ENGINE
 //--------------------------------------------------
 // Intrinsic Value
 //--------------------------------------------------
@@ -250,7 +257,7 @@ calcSafetyPercent(score) =>
 calcSafetyStatus(score) =>
 
     safetyLabel(calcSafetyPercent(score))
-
+//==================================================
 
 //==================================================
 // SECTION 06 : NW / DIFFUSION ENGINE
