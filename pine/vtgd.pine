@@ -13,6 +13,40 @@ indicator("VTGD Cockpit v0.1", overlay=true, precision=2)
 // SECTION 01 : INPUTS
 //==================================================
 
+//---------- General ----------
+groupGeneral = "General"
+
+expiryDays       = input.int(7, "Expiry Days", minval=0, group=groupGeneral)
+strikeStep       = input.int(50, "Strike Interval", options=[50, 100], group=groupGeneral)
+strikeCount      = input.int(11, "Total Strikes", minval=11, maxval=11, group=groupGeneral)
+
+//---------- VTGD Engine ----------
+groupEngine = "VTGD Engine"
+
+momentumFactor   = input.float(100.0, "Momentum Factor", step=1.0, group=groupEngine)
+safetyThreshold  = input.float(0.0, "Safety Threshold", step=0.1, group=groupEngine)
+
+//---------- Cockpit ----------
+groupCockpit = "Cockpit"
+
+showCockpit      = input.bool(true, "Show VTGD Cockpit", group=groupCockpit)
+collapseCockpit  = input.bool(false, "Start Minimized", group=groupCockpit)
+
+theme = input.string(
+    "Sunrise",
+    "Theme",
+    options=["Sunrise", "Classic"],
+    group=groupCockpit)
+
+//---------- Strike Scanner ----------
+groupScanner = "Strike Scanner"
+
+showScanner = input.bool(true, "Show Strike Scanner", group=groupScanner)
+
+//---------- Prediction ----------
+groupPrediction = "Prediction"
+
+enablePrediction = input.bool(true, "Enable Prediction Engine", group=groupPrediction)
 
 //==================================================
 // SECTION 02 : UTILITY FUNCTIONS
