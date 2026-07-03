@@ -107,12 +107,43 @@ yesNo(condition) =>
     condition ? "YES" : "NO"
 
 
-//==================================================
-// SECTION 03 : STRIKE ENGINE (ATM ±5)
-// 5 CE Above
-// ATM
-// 5 PE Below
-//==================================================
+//--------------------------------------------------
+// Spot Price
+//--------------------------------------------------
+
+spot = close
+
+//--------------------------------------------------
+// ATM Strike
+//--------------------------------------------------
+
+atmStrike =
+    math.round(spot / strikeStep) * strikeStep
+
+//--------------------------------------------------
+// 11 Strike Array
+//--------------------------------------------------
+
+var strikeList = array.new_float()
+
+if barstate.isfirst
+    array.clear(strikeList)
+
+for i = 5 to 1 by -1
+    array.push(strikeList, atmStrike + i * strikeStep)
+
+array.push(strikeList, atmStrike)
+
+for i = 1 to 5
+    array.push(strikeList, atmStrike - i * strikeStep)
+
+
+//--------------------------------------------------
+// Helper Function
+//--------------------------------------------------
+
+getStrike(index) =>
+    array.get(strikeList, index)
 
 
 //==================================================
