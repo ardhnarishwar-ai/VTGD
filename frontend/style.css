@@ -143,3 +143,36 @@ body{
     margin-top:15px;
     color:#666;
 }
+.strike-card .row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 0;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.strike-card .row:last-child{
+
+    border-bottom:none;
+
+}
+
+.strike-card span{
+
+    color:#666;
+
+}
+
+.strike-card strong{
+
+    font-size:20px;
+
+    color:#111;
+
+}
