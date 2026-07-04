@@ -226,3 +226,14 @@ body{
     border-radius:30px;
 
 }
+.delta-fill{
+
+    width:58%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,#26c6da,#00838f);
+
+    border-radius:30px;
+
+}
