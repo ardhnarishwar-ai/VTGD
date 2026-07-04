@@ -1,3 +1,4 @@
+from app.auth.smartapi import login
 from fastapi import FastAPI
 
 app = FastAPI(
@@ -11,4 +12,11 @@ def home():
         "status": "running",
         "project": "VTGD",
         "message": "VTGD Backend is Live 🚀"
+    }
+@app.get("/login")
+def angel_login():
+    smart, session = login()
+    return {
+        "status": "success",
+        "message": "Angel One login successful"
     }
