@@ -444,6 +444,53 @@ predictionColor =
 
 //==================================================
 // SECTION 10 : VTGD COCKPIT UI
+//--------------------------------------------------
+// Dashboard Table
+//--------------------------------------------------
+
+var table cockpit = table.new(position.top_right, 2, 12, border_width=1)
+
+//--------------------------------------------------
+// Update Dashboard
+//--------------------------------------------------
+
+if showCockpit and barstate.islast
+
+    table.cell(cockpit, 0, 0, "VTGD", bgcolor=color.blue, text_color=color.white)
+    table.cell(cockpit, 1, 0, "v0.1", bgcolor=color.blue, text_color=color.white)
+
+    table.cell(cockpit, 0, 1, "Spot")
+    table.cell(cockpit, 1, 1, str.tostring(round2(spot)))
+
+    table.cell(cockpit, 0, 2, "ATM")
+    table.cell(cockpit, 1, 2, str.tostring(atmStrike))
+
+    table.cell(cockpit, 0, 3, "Safety")
+    table.cell(cockpit, 1, 3, calcSafetyStatus(calcSafety(spot, atmStrike, calcDelta(calcD1(spot, atmStrike, iv)), calcGamma(spot, iv, calcD1(spot, atmStrike, iv)), calcVega(spot, calcD1(spot, atmStrike, iv)), calcTheta(spot, atmStrike, iv, calcD1(spot, atmStrike, iv), calcD2(calcD1(spot, atmStrike, iv), iv))))
+
+    table.cell(cockpit, 0, 4, "Mode")
+    table.cell(cockpit, 1, 4, vtgdMode)
+
+    table.cell(cockpit, 0, 5, "PCR")
+    table.cell(cockpit, 1, 5, pcrLabel)
+
+    table.cell(cockpit, 0, 6, "Diffusion")
+    table.cell(cockpit, 1, 6, diffusionLabel)
+
+    table.cell(cockpit, 0, 7, "Trend")
+    table.cell(cockpit, 1, 7, trendLabel)
+
+    table.cell(cockpit, 0, 8, "Prediction")
+    table.cell(cockpit, 1, 8, predictionSignal)
+
+    table.cell(cockpit, 0, 9, "FVP")
+    table.cell(cockpit, 1, 9, fvpStatus)
+
+    table.cell(cockpit, 0, 10, "Scanner")
+    table.cell(cockpit, 1, 10, yesNo(showScanner))
+
+    table.cell(cockpit, 0, 11, "Engine")
+    table.cell(cockpit, 1, 11, yesNo(enablePrediction))
 //==================================================
 
 
