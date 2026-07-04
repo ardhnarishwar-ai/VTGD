@@ -3,14 +3,14 @@ import pyotp
 import os
 
 def create_smartapi():
-    api_key = os.getenv("ANGEL_API_KEY")
+    api_key = os.getenv("tzP4cDZy")
     return SmartConnect(api_key=api_key)
 
 def login():
-    api_key = os.getenv("ANGEL_API_KEY")
-    client_id = os.getenv("ANGEL_CLIENT_ID")
-    mpin = os.getenv("ANGEL_MPIN")
-    totp_secret = os.getenv("ANGEL_TOTP_SECRET")
+    api_key = os.getenv("tzP4cDZy")
+    client_id = os.getenv("AAAQ844597")
+    mpin = os.getenv("2007")
+    totp_secret = os.getenv("CS45NEJL52JREY5Y3TIDXLCNDU")
 
     smart = SmartConnect(api_key=api_key)
 
