@@ -3,6 +3,7 @@ uvicorn
 smartapi-python
 pyotp
 python-dotenv
+websocket-client
 websockets
 numpy
 requests
