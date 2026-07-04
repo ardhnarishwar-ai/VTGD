@@ -385,3 +385,63 @@ body{
     color:#666;
     line-height:1.5;
 }
+/* ===========================
+   Market Gravity OS Theme
+=========================== */
+
+body{
+    background:linear-gradient(180deg,#ffe082 0%,#fff8e1 45%,#ffffff 100%);
+    font-family:Arial,sans-serif;
+}
+
+.header{
+    background:linear-gradient(180deg,#ffd54f,#ffb300);
+    border-radius:28px;
+    color:#1f2937;
+    padding:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.card{
+    background:#fff;
+    border-radius:24px;
+    padding:18px;
+    margin-bottom:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:36px;
+    box-shadow:0 4px 12px rgba(0,0,0,.12);
+}
+
+.title h1{
+    margin:0;
+    font-size:42px;
+    font-weight:800;
+}
+
+.title span{
+    display:block;
+    color:#d35400;
+    font-size:18px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.menu{
+    font-size:32px;
+    cursor:pointer;
+}
