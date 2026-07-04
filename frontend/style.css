@@ -321,3 +321,33 @@ body{
 
     box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
+.header{
+    background:linear-gradient(180deg,#FFD54F,#FFC107,#FFB300);
+
+    border-radius:22px;
+
+    padding:22px;
+
+    margin-bottom:18px;
+
+    color:#1a1a1a;
+
+    text-align:left;
+
+    box-shadow:0 10px 25px rgba(255,193,7,.35);
+}
+
+.header h1{
+    margin:0;
+    font-size:34px;
+    font-weight:700;
+}
+
+.header span{
+    display:block;
+    margin-top:6px;
+    font-size:15px;
+    letter-spacing:2px;
+    color:#8a4b00;
+    font-weight:600;
+}
