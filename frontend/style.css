@@ -281,3 +281,30 @@ body{
     font-size:16px;
 
 }
+.hero-finish{
+    margin-top:20px;
+    padding:20px;
+    border-radius:24px;
+
+    background:linear-gradient(135deg,#f4ffb0,#b8ff6a,#8be04e);
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.18);
+}
+
+.hero-finish h2{
+    font-size:30px;
+    color:#1d6d00;
+    margin:10px 0;
+}
+
+.hero-finish p{
+    color:#444;
+    font-size:15px;
+}
+
+.car{
+    font-size:70px;
+    margin-bottom:10px;
+}
