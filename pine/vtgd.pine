@@ -32,11 +32,7 @@ groupCockpit = "Cockpit"
 showCockpit      = input.bool(true, "Show VTGD Cockpit", group=groupCockpit)
 collapseCockpit  = input.bool(false, "Start Minimized", group=groupCockpit)
 
-theme = input.string(
-    "Sunrise",
-    "Theme",
-    options=["Sunrise", "Classic"],
-    group=groupCockpit)
+theme = input.string("Sunrise", "Theme", options=["Sunrise", "Classic"], group=groupCockpit)
 
 //---------- Strike Scanner ----------
 groupScanner = "Strike Scanner"
