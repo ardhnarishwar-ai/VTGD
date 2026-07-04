@@ -861,3 +861,45 @@ body{
     font-weight:600;
 
 }
+/* ==========================
+   Decision Card
+========================== */
+
+.decision-card{
+    text-align:center;
+}
+
+.decision-action{
+    margin:15px 0;
+    padding:14px;
+    border-radius:14px;
+    font-size:26px;
+    font-weight:700;
+}
+
+.decision-action.buy{
+    background:#e8f9ed;
+    color:#178a3f;
+}
+
+.decision-action.sell{
+    background:#ffeaea;
+    color:#d62d20;
+}
+
+.decision-action.wait{
+    background:#fff8dd;
+    color:#b8860b;
+}
+
+.decision-confidence{
+    font-size:18px;
+    font-weight:700;
+    margin-top:10px;
+}
+
+.decision-reason{
+    margin-top:12px;
+    color:#666;
+    line-height:1.5;
+}
