@@ -4,7 +4,6 @@ smartapi-python
 pyotp
 python-dotenv
 websockets
-pandas
 numpy
 requests
 logzero
