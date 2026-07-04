@@ -700,3 +700,164 @@ body{
     color:#2e7d32;
 
 }
+/* =========================
+   PCR Card
+========================= */
+
+.pcr-card{
+
+    text-align:center;
+
+}
+
+.pcr-value{
+
+    font-size:42px;
+
+    font-weight:800;
+
+    color:#222;
+
+    margin:12px 0;
+
+}
+
+.pcr-status{
+
+    display:inline-block;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    font-weight:700;
+
+    font-size:16px;
+
+}
+
+.pcr-status.bullish{
+
+    background:#e8f5e9;
+
+    color:#2e7d32;
+
+}
+
+.pcr-status.neutral{
+
+    background:#fff8e1;
+
+    color:#f9a825;
+
+}
+
+.pcr-status.bearish{
+
+    background:#ffebee;
+
+    color:#c62828;
+
+}
+/* =========================
+   Fair Value Price Card
+========================= */
+
+.fvp-card{
+
+    text-align:center;
+
+}
+
+.fvp-price{
+
+    font-size:40px;
+
+    font-weight:800;
+
+    color:#1f2937;
+
+    margin:12px 0;
+
+}
+
+.fvp-status{
+
+    display:inline-block;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    font-weight:700;
+
+}
+
+.fvp-status.green{
+
+    background:#e8f5e9;
+
+    color:#2e7d32;
+
+}
+
+.fvp-status.red{
+
+    background:#ffebee;
+
+    color:#c62828;
+
+}
+
+.fvp-status.yellow{
+
+    background:#fff8e1;
+
+    color:#f9a825;
+
+}
+
+.fvp-distance{
+
+    margin-top:12px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#555;
+
+}
+/* =========================
+   Zero → Hero
+========================= */
+
+.mode-card{
+
+    text-align:center;
+
+    background:linear-gradient(135deg,#fff8e1,#ffe082);
+
+    border:2px solid #ffd54f;
+
+}
+
+.mode-card h2{
+
+    color:#ef6c00;
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+}
+
+.mode-card p{
+
+    font-size:18px;
+
+    color:#555;
+
+    font-weight:600;
+
+}
