@@ -351,3 +351,37 @@ body{
     color:#8a4b00;
     font-weight:600;
 }
+.hero-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.hero-left,
+.hero-right{
+    flex:1;
+}
+
+.hero-left h2,
+.hero-right h2{
+    margin:0 0 10px;
+    font-size:18px;
+}
+
+.status{
+    display:inline-block;
+    background:#e53935;
+    color:#fff;
+    padding:8px 14px;
+    border-radius:10px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.hero-left p,
+.hero-right p{
+    margin:0;
+    color:#666;
+    line-height:1.5;
+}
