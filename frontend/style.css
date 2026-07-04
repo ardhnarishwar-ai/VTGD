@@ -518,3 +518,53 @@ body{
 .live span{
     color:#e53935;
 }
+/* =========================
+   Sunrise Header Effect
+========================= */
+
+.header{
+    position:relative;
+    overflow:hidden;
+}
+
+.header::before{
+    content:"";
+
+    position:absolute;
+
+    top:-90px;
+    right:20px;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+        rgba(255,245,170,.95) 0%,
+        rgba(255,205,60,.85) 40%,
+        rgba(255,180,0,.25) 70%,
+        transparent 100%);
+}
+
+.header::after{
+    content:"";
+
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:90px;
+
+    background:linear-gradient(
+        to top,
+        rgba(255,190,40,.65),
+        transparent
+    );
+}
+
+.header>*{
+    position:relative;
+    z-index:2;
+}
