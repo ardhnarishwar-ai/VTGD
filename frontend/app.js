@@ -81,3 +81,48 @@ function updateNeedle(value){
 
 // Demo
 updateNeedle(demo.nw);
+// ==========================
+// VTGD Decision Engine
+// ==========================
+
+function updateDecision() {
+
+    const action = document.querySelector(".decision-action");
+    const confidence = document.querySelector(".decision-confidence");
+    const reason = document.querySelector(".decision-reason");
+
+    if (!action) return;
+
+    if (demo.nw > 0 && demo.pcr >= 1.10) {
+
+        action.className = "decision-action buy";
+        action.innerHTML = "🟢 BUY CALL";
+
+        confidence.innerHTML = "Confidence 91%";
+        reason.innerHTML = "NW Positive • PCR Bullish • Vega Rising";
+
+    }
+
+    else if (demo.nw < 0 && demo.pcr <= 0.90) {
+
+        action.className = "decision-action sell";
+        action.innerHTML = "🔴 BUY PUT";
+
+        confidence.innerHTML = "Confidence 88%";
+        reason.innerHTML = "NW Negative • PCR Bearish • Vega Falling";
+
+    }
+
+    else {
+
+        action.className = "decision-action wait";
+        action.innerHTML = "🟡 WAIT";
+
+        confidence.innerHTML = "Confidence 54%";
+        reason.innerHTML = "Mixed Signals";
+
+    }
+
+}
+
+updateDecision();
