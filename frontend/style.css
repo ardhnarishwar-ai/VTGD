@@ -445,3 +445,76 @@ body{
     font-size:32px;
     cursor:pointer;
 }
+/* =========================
+   Market Gravity OS Header
+========================= */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+
+    background:linear-gradient(180deg,#ffd54f,#ffb300);
+    border-radius:28px;
+    padding:22px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.logo{
+    width:72px;
+    height:72px;
+
+    border-radius:50%;
+    background:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:38px;
+}
+
+.title{
+    flex:1;
+}
+
+.title small{
+    display:block;
+    color:#8a5200;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.title h1{
+    margin:4px 0;
+    font-size:32px;
+    color:#12223b;
+}
+
+.title span{
+    display:block;
+    color:#d35400;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.live-box{
+    text-align:right;
+}
+
+.expiry{
+    font-size:12px;
+    color:#444;
+}
+
+.live{
+    margin-top:10px;
+    font-weight:bold;
+}
+
+.live span{
+    color:#e53935;
+}
