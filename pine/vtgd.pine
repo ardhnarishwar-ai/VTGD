@@ -496,4 +496,22 @@ if showCockpit and barstate.islast
 
 //==================================================
 // SECTION 11 : STRIKE SCANNER
+//--------------------------------------------------
+// 11 Strike Scanner
+//--------------------------------------------------
+
+if showScanner
+
+    for i = 0 to array.size(strikeList) - 1
+
+        strike = getStrike(i)
+
+        label.new(
+             bar_index,
+             high + i,
+             str.tostring(strike),
+             style=label.style_label_left,
+             color=color.new(color.blue, 80),
+             textcolor=color.white,
+             size=size.tiny)
 //==================================================
