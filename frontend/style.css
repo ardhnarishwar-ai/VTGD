@@ -903,3 +903,40 @@ body{
     color:#666;
     line-height:1.5;
 }
+.top-strike{
+    background:linear-gradient(135deg,#fff8dc,#ffe082);
+    border:2px solid #f4c542;
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:18px;
+}
+
+.strike-name{
+    font-size:26px;
+    font-weight:700;
+}
+
+.strike-score{
+    margin-top:10px;
+    font-size:18px;
+}
+
+.strike-state{
+    margin-top:12px;
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:12px;
+    font-weight:700;
+}
+
+.strike-state.green{
+    background:#e8f9ed;
+    color:#178a3f;
+}
+
+.other-strikes .row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+}
