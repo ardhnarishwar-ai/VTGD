@@ -1,0 +1,17 @@
+backend/
+│
+├── app/
+│   ├── api/
+│   ├── auth/
+│   ├── smartapi/
+│   ├── websocket/
+│   ├── engine/
+│   ├── models/
+│   └── utils/
+│
+├── tests/
+├── requirements.txt
+├── .env.example
+├── .gitignore
+├── README.md
+└── main.py
