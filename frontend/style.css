@@ -113,3 +113,33 @@ body{
     color:#666;
 
 }
+.nw-card{
+    text-align:center;
+}
+
+.nw-header{
+    font-size:18px;
+    font-weight:bold;
+    color:#444;
+}
+
+.nw-value{
+    font-size:52px;
+    font-weight:bold;
+    color:#1565c0;
+    margin:18px 0;
+}
+
+.nw-status{
+    display:inline-block;
+    background:#00c853;
+    color:white;
+    padding:8px 18px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.nw-footer{
+    margin-top:15px;
+    color:#666;
+}
