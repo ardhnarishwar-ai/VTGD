@@ -42,3 +42,34 @@ body{
     font-size:22px;
     font-weight:bold;
 }
+.hero-card{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.hero-left,
+.hero-right{
+    flex:1;
+}
+
+.hero-card h2{
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.status{
+    display:inline-block;
+    background:#ff3b30;
+    color:#fff;
+    padding:8px 16px;
+    border-radius:12px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.hero-card p{
+    font-size:14px;
+    color:#666;
+    line-height:1.5;
+}
