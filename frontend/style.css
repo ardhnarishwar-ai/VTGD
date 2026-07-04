@@ -578,3 +578,125 @@ body{
         radial-gradient(circle at 26% 35%, rgba(255,255,255,.45) 0 28px, transparent 29px),
         radial-gradient(circle at 35% 35%, rgba(255,255,255,.40) 0 20px, transparent 21px);
 }
+/* =========================
+   Trend vs Diffusion Card
+========================= */
+
+.trend-card{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    align-items:center;
+}
+
+.trend-row{
+    display:flex;
+    justify-content:space-between;
+    margin:10px 0;
+    font-size:18px;
+}
+
+.prediction{
+    grid-column:1 / -1;
+
+    background:#fff4f4;
+    border-left:6px solid #e53935;
+
+    border-radius:16px;
+
+    padding:16px;
+}
+
+.prediction h3{
+    color:#d32f2f;
+    margin-bottom:8px;
+}
+
+.prediction p{
+    color:#666;
+    margin-bottom:8px;
+}
+
+.prediction strong{
+    color:#222;
+}
+/* =========================
+   Net Weight Card
+========================= */
+
+.gravity-card{
+
+    text-align:center;
+
+}
+
+.gravity-meter{
+
+    width:170px;
+    height:170px;
+
+    margin:20px auto;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(circle,#ffffff 45%,#f3f3f3 46%,#ffd54f 100%);
+
+    position:relative;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+
+}
+
+.needle{
+
+    position:absolute;
+
+    width:70px;
+    height:4px;
+
+    background:#d32f2f;
+
+    top:50%;
+    left:50%;
+
+    transform-origin:left center;
+
+    transform:rotate(15deg);
+
+    border-radius:5px;
+}
+
+.gravity-value{
+
+    margin-top:15px;
+
+}
+
+.gravity-value span{
+
+    display:block;
+
+    color:#777;
+
+    font-size:15px;
+
+}
+
+.gravity-value strong{
+
+    font-size:34px;
+
+    color:#111;
+
+}
+
+.gravity-status{
+
+    margin-top:10px;
+
+    font-weight:700;
+
+    color:#2e7d32;
+
+}
