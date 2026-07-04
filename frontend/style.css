@@ -568,3 +568,13 @@ body{
     position:relative;
     z-index:2;
 }
+/* =========================
+   Soft Clouds
+========================= */
+
+.header{
+    background-image:
+        radial-gradient(circle at 18% 35%, rgba(255,255,255,.45) 0 22px, transparent 23px),
+        radial-gradient(circle at 26% 35%, rgba(255,255,255,.45) 0 28px, transparent 29px),
+        radial-gradient(circle at 35% 35%, rgba(255,255,255,.40) 0 20px, transparent 21px);
+}
