@@ -20,3 +20,11 @@ def angel_login():
         "status": "success",
         "message": "Angel One login successful"
     }
+
+
+@app.get("/vtgd/demo")
+def vtgd_demo():
+    return {
+        "status": "ready",
+        "message": "VTGD Engine Connected"
+    }
