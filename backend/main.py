@@ -66,3 +66,12 @@ return {
     "top_pe": next((x for x in results if x["type"] == "PE"), None),
     "results": results
 }
+@app.get("/vtgd/top")
+def vtgd_top():
+
+    ranking = vtgd_rank()
+
+    return {
+        "best_call": ranking["top_ce"],
+        "best_put": ranking["top_pe"]
+    }
