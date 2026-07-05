@@ -1,10 +1,9 @@
+from ..engine.greeks import create_greeks
+from .volume import relative_volume
+from .open_interest import oi_ratio
 """
 VTGD Data Mapper
 """
-
-from ..engine.greeks import create_greeks
-
-
 def map_option(option):
 
     return create_greeks(
