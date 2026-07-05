@@ -31,21 +31,23 @@ sws = SmartWebSocketV2(
 def on_data(wsapp, message):
     try:
         ltp = message.get("last_traded_price")
-token = message.get("token")
+        token = message.get("token")
 
-cache.update(
-    symbol,
-    {
-        "token": token,
-        "ltp": ltp,
-        "time": datetime.now().strftime("%H:%M:%S"),
-    },
-)
+        cache.update(
+            symbol,
+            {
+                "token": token,
+                "ltp": ltp,
+                "time": datetime.now().strftime("%H:%M:%S"),
+            },
+        )
+
         print(
             f"📈 {symbol} | "
             f"LTP: {message.get('last_traded_price')} | "
             f"Token: {message.get('token')}"
         )
+
     except Exception:
         print(message)
 
