@@ -1,3 +1,4 @@
+from datetime import datetime
 from config.settings import API_KEY
 from data.token_master import get_token
 from SmartApi.smartWebSocketV2 import SmartWebSocketV2
@@ -29,6 +30,17 @@ sws = SmartWebSocketV2(
 
 def on_data(wsapp, message):
     try:
+        ltp = message.get("last_traded_price")
+token = message.get("token")
+
+cache.update(
+    symbol,
+    {
+        "token": token,
+        "ltp": ltp,
+        "time": datetime.now().strftime("%H:%M:%S"),
+    },
+)
         print(
             f"📈 {symbol} | "
             f"LTP: {message.get('last_traded_price')} | "
