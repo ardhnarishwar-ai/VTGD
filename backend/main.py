@@ -55,6 +55,17 @@ def vtgd_rank():
         except Exception:
             pass
 
+results.sort(
+    key=lambda x: x["vtgd"]["strike_rank"],
+    reverse=True
+)
+
+return {
+    "count": len(results),
+    "top_ce": next((x for x in results if x["type"] == "CE"), None),
+    "top_pe": next((x for x in results if x["type"] == "PE"), None),
+    "results": results
+}
     return {
         "count": len(results),
         "results": results
