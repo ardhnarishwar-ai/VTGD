@@ -1,3 +1,4 @@
+from data.cache import TickCache
 from data.option_chain import get_option_chain
 from data.live_greeks import parse_greeks
 from engine.vtgd_engine import evaluate
@@ -8,7 +9,7 @@ app = FastAPI(
     title="VTGD Backend",
     version="1.0.0"
 )
-
+cache = TickCache()
 @app.get("/")
 def home():
     return {
@@ -74,4 +75,11 @@ def vtgd_top():
     return {
         "best_call": ranking["top_ce"],
         "best_put": ranking["top_pe"]
+    }
+@app.get("/vtgd/cache")
+def vtgd_cache():
+
+    return {
+        "symbols": list(cache.previous.keys()),
+        "count": len(cache.previous)
     }
