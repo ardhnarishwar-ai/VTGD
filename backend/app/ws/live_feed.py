@@ -18,7 +18,8 @@ def start_live_feed():
     (WebSocket integration will be added next)
     """
 feed_token = smart.getfeedToken()
-token = get_token("NIFTY")
+symbol = "NIFTY"
+token = get_token(symbol)
 sws = SmartWebSocketV2(
     session.authToken,
     API_KEY,
@@ -27,7 +28,14 @@ sws = SmartWebSocketV2(
 )
 
 def on_data(wsapp, message):
-    print(message)
+    try:
+        print(
+            f"📈 {symbol} | "
+            f"LTP: {message.get('last_traded_price')} | "
+            f"Token: {message.get('token')}"
+        )
+    except Exception:
+        print(message)
 
 def on_open(wsapp):
 
@@ -44,7 +52,7 @@ def on_open(wsapp):
         ]
     )
 
-    print("📡 NIFTY Subscribed")
+    print(f"📡 {symbol} Subscribed")
 
 def on_error(wsapp, error):
     print(error)
