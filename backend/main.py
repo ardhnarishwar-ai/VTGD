@@ -87,3 +87,12 @@ def vtgd_cache():
         "symbols": list(cache.previous.keys()),
         "count": len(cache.previous)
     }
+@app.get("/option-test")
+def option_test():
+
+    data = get_option_chain(
+        exchange="NFO",
+        symbol="NIFTY"
+    )
+
+    return data
