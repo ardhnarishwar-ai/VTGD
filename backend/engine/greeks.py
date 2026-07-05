@@ -12,22 +12,31 @@ class Greeks:
     theta: float
     vega: float
 
+    intrinsic: float
+    volume_ratio: float
+    oi_ratio: float
+    premium: float
 
 def create_greeks(
     delta: float,
     gamma: float,
     theta: float,
     vega: float,
+    intrinsic: float,
+    volume_ratio: float,
+    oi_ratio: float,
+    premium: float,
 ) -> Greeks:
-    """
-    Create Greeks object
-    """
 
     return Greeks(
         delta=delta,
         gamma=gamma,
         theta=theta,
         vega=vega,
+        intrinsic=intrinsic,
+        volume_ratio=volume_ratio,
+        oi_ratio=oi_ratio,
+        premium=premium,
     )
 
 
