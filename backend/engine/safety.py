@@ -2,33 +2,23 @@
 VTGD Safety Engine
 """
 
-from .physics import (
-    chassis,
-    engine,
-    accelerator,
-    fuel,
-)
+from .greeks import Greeks
 
 
-def safety_score(
-    delta: float,
-    gamma: float,
-    vega: float,
-    theta: float,
-) -> float:
+def safety_score(g: Greeks) -> float:
     """
-    Vehicle Health
+    VTGD Safety
 
     Safety =
-    Chassis
+    (Intrinsic × |Delta|)
     + (Gamma × Vega)
-    - (Theta × Vega)
+    - (|Theta| × Vega)
     """
 
     value = (
-        chassis(delta)
-        + (accelerator(gamma) * engine(vega))
-        - (fuel(theta) * engine(vega))
+        (g.intrinsic * abs(g.delta))
+        + (g.gamma * g.vega)
+        - (abs(g.theta) * g.vega)
     )
 
     return round(value, 4)
