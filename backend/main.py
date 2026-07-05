@@ -64,7 +64,6 @@ results.sort(
     key=lambda x: x["vtgd"]["strike_rank"],
     reverse=True
 )
-
 return {
     "count": len(results),
     "top_ce": next((x for x in results if x["type"] == "CE"), None),
