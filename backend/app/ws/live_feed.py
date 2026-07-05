@@ -1,3 +1,5 @@
+from config.settings import API_KEY
+from data.token_master import get_token
 from SmartApi.smartWebSocketV2 import SmartWebSocketV2
 """
 VTGD Live Feed
@@ -16,10 +18,10 @@ def start_live_feed():
     (WebSocket integration will be added next)
     """
 feed_token = smart.getfeedToken()
-
+token = get_token("NIFTY")
 sws = SmartWebSocketV2(
     session.authToken,
-    "YOUR_API_KEY",
+    API_KEY,
     session.clientCode,
     feed_token
 )
@@ -28,7 +30,21 @@ def on_data(wsapp, message):
     print(message)
 
 def on_open(wsapp):
+
     print("🟢 WebSocket Connected")
+
+    sws.subscribe(
+        correlation_id="vtgd",
+        mode=1,
+        token_list=[
+            {
+                "exchangeType": 1,
+                "tokens": [token]
+            }
+        ]
+    )
+
+    print("📡 NIFTY Subscribed")
 
 def on_error(wsapp, error):
     print(error)
