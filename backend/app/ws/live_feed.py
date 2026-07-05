@@ -1,3 +1,4 @@
+from SmartApi.smartWebSocketV2 import SmartWebSocketV2
 """
 VTGD Live Feed
 """
@@ -9,14 +10,35 @@ cache = TickCache()
 
 
 def start_live_feed():
+    smart, session = login()
     """
     Starts Angel One live market feed.
     (WebSocket integration will be added next)
     """
+feed_token = smart.getfeedToken()
 
-    smart, session = login()
+sws = SmartWebSocketV2(
+    session.authToken,
+    "YOUR_API_KEY",
+    session.clientCode,
+    feed_token
+)
 
-    print("✅ Angel One Connected")
-    print("🚀 VTGD Live Feed Started")
+def on_data(wsapp, message):
+    print(message)
 
-    return smart
+def on_open(wsapp):
+    print("🟢 WebSocket Connected")
+
+def on_error(wsapp, error):
+    print(error)
+
+def on_close(wsapp):
+    print("🔴 WebSocket Closed")
+
+sws.on_open = on_open
+sws.on_data = on_data
+sws.on_error = on_error
+sws.on_close = on_close
+
+return sws
