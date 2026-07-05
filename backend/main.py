@@ -71,6 +71,7 @@ return {
     "top_pe": next((x for x in results if x["type"] == "PE"), None),
     "results": results
 }
+
 @app.get("/vtgd/top")
 def vtgd_top():
 
