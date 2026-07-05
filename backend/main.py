@@ -46,30 +46,21 @@ def vtgd_rank():
     for option in chain.get("data", []):
 
         try:
-            g = parse_greeks(option)
-
-            score = evaluate(g)
-
-            results.append({
-                "strike": option.get("strikePrice"),
-                "type": option.get("optionType"),
-                "premium": option.get("ltp"),
-                "vtgd": score
-            })
-
+            ...
         except Exception:
             pass
 
-results.sort(
-    key=lambda x: x["vtgd"]["strike_rank"],
-    reverse=True
-)
-return {
-    "count": len(results),
-    "top_ce": next((x for x in results if x["type"] == "CE"), None),
-    "top_pe": next((x for x in results if x["type"] == "PE"), None),
-    "results": results
-}
+    results.sort(
+        key=lambda x: x["vtgd"]["strike_rank"],
+        reverse=True
+    )
+
+    return {
+        "count": len(results),
+        "top_ce": next((x for x in results if x["type"] == "CE"), None),
+        "top_pe": next((x for x in results if x["type"] == "PE"), None),
+        "results": results
+    }
 
 @app.get("/vtgd/top")
 def vtgd_top():
