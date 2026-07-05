@@ -18,17 +18,13 @@ MASTER = load_master()
 
 
 def search(symbol):
-
     return [
         s for s in MASTER
         if symbol.upper() in s["symbol"].upper()
     ]
     
     def get_token(symbol):
-
     result = search(symbol)
-
     if not result:
         return None
-
     return result[0]["token"]
