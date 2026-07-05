@@ -40,5 +40,6 @@ sws.on_open = on_open
 sws.on_data = on_data
 sws.on_error = on_error
 sws.on_close = on_close
-
+print("🚀 Starting Angel One WebSocket...")
+sws.connect()
 return sws
