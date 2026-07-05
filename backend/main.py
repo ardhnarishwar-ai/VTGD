@@ -66,7 +66,3 @@ return {
     "top_pe": next((x for x in results if x["type"] == "PE"), None),
     "results": results
 }
-    return {
-        "count": len(results),
-        "results": results
-    }
