@@ -1,3 +1,4 @@
+from app.ws.live_feed import start_live_feed
 from data.cache import TickCache
 from data.option_chain import get_option_chain
 from data.live_greeks import parse_greeks
@@ -9,6 +10,9 @@ app = FastAPI(
     title="VTGD Backend",
     version="1.0.0"
 )
+@app.on_event("startup")
+def startup():
+    start_live_feed()
 cache = TickCache()
 @app.get("/")
 def home():
