@@ -1,5 +1,5 @@
 from datetime import datetime
-from config.settings import API_KEY
+import os
 from data.token_master import get_token
 from SmartApi.smartWebSocketV2 import SmartWebSocketV2
 
@@ -27,7 +27,7 @@ def start_live_feed():
 
     sws = SmartWebSocketV2(
         session.authToken,
-        API_KEY,
+        os.getenv("SMART_API_KEY"),
         session.clientCode,
         feed_token
     )
