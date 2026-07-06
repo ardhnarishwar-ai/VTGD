@@ -3,18 +3,21 @@ from data.cache import TickCache
 from data.option_chain import get_option_chain
 from data.live_greeks import parse_greeks
 from engine.vtgd_engine import evaluate
-from app.auth.smartapi import login
+from app.auth.smartapi import login, get_smartapi_env_status
 from fastapi import FastAPI
 
 app = FastAPI(
     title="VTGD Backend",
     version="1.0.0"
 )
+
 @app.on_event("startup")
 def startup():
     return
     # start_live_feed()
+
 cache = TickCache()
+
 @app.get("/")
 def home():
     return {
@@ -22,13 +25,34 @@ def home():
         "project": "VTGD",
         "message": "VTGD Backend is Live 🚀"
     }
+
+@app.get("/env")
+def env_status():
+    """Return presence status of required SMARTAPI_* environment variables without revealing values."""
+    return get_smartapi_env_status()
+
 @app.get("/login")
 def angel_login():
-    smart, session = login()
+    smart, session, env = login()
+
+    if any(v == "missing" for v in env.values()):
+        return {
+            "status": "error",
+            "message": "Missing SMARTAPI environment variables",
+            "env": env
+        }
+
+    if smart is None or session is None:
+        return {
+            "status": "error",
+            "message": "Login failed",
+            "env": env
+        }
 
     return {
         "status": "success",
-        "session": session
+        "session": session,
+        "env": env
     }
 
 
