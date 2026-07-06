@@ -1,4 +1,5 @@
 from app.auth.smartapi import login
+
 """
 VTGD Live Option Chain
 """
@@ -11,10 +12,10 @@ def get_option_chain(exchange="NFO", symbol="NIFTY"):
     smart, session = login()
 
     response = smart.optionGreek(
-    {
-        "name": symbol,
-        "expirydate": "09JUL2026"
-    }
-)
+        {
+            "name": symbol,
+            "expirydate": "09JUL2026"
+        }
+    )
 
-return response
+    return response
