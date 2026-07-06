@@ -24,9 +24,10 @@ def home():
 @app.get("/login")
 def angel_login():
     smart, session = login()
+
     return {
         "status": "success",
-        "message": "Angel One login successful"
+        "session": session
     }
 
 
