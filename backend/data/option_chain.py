@@ -2,7 +2,7 @@
 VTGD Live Option Chain
 """
 
-from ..app.auth.smartapi import login
+from app.auth.smartapi import login
 
 
 def get_option_chain(exchange="NFO", symbol="NIFTY"):
