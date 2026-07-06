@@ -22,4 +22,7 @@ def login():
         totp
     )
 
+print("SESSION =", session)
+
+return smart, session
     return smart, session
