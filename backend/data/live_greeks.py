@@ -2,7 +2,7 @@
 VTGD Live Greeks Parser
 """
 
-from ..engine.greeks import create_greeks
+from engine.greeks import create_greeks
 
 
 def parse_greeks(option: dict):
