@@ -26,6 +26,7 @@ def home():
         "message": "VTGD Backend is Live 🚀"
     }
 
+
 @app.get("/env")
 def env_status():
     """Return presence status of required SMARTAPI_* environment variables without revealing values."""
@@ -72,12 +73,50 @@ def vtgd_rank():
     for option in chain.get("data", []):
 
         try:
-            ...
+            # Parse option into VTGD Greeks object
+            g = parse_greeks(option)
+
+            # Evaluate VTGD engine for this option
+            vtgd_result = evaluate(g) or {}
+
+            # Ensure net_weight and safety exist (these are provided by evaluate)
+            net_w = vtgd_result.get("net_weight")
+            safety_v = vtgd_result.get("safety")
+
+            # Extract PCR and FVP from option payload if available; preserve research if absent
+            # (do NOT compute PCR or FVP here; just map existing payload fields)
+            pcr_val = option.get("pcr") or option.get("PCR") or option.get("pcrValue") or None
+            fvp_val = option.get("vwap") or option.get("fvp") or option.get("fairValue") or None
+
+            # Build the result entry (preserve original option metadata and engine outputs)
+            entry = {
+                "symbol": option.get("symbol") or option.get("name"),
+                "strike": option.get("strikePrice") or option.get("strike") or option.get("strike_price"),
+                "type": option.get("optionType") or option.get("type") or option.get("instrumentType"),
+                "premium": float(option.get("ltp") or option.get("lastPrice") or 0.0),
+                "vtgd": {
+                    "net_weight": net_w,
+                    "safety": safety_v,
+                    # strike_rank and diffusion remain as returned by evaluate
+                    "strike_rank": vtgd_result.get("strike_rank"),
+                    "diffusion": vtgd_result.get("diffusion"),
+                    # Map PCR & FVP from payload when available; otherwise null (explicit)
+                    "pcr": pcr_val,
+                    "fvp": fvp_val
+                },
+                # preserve raw greeks mapping for debug/trace (optional)
+                "raw": option
+            }
+
+            results.append(entry)
+
         except Exception:
-            pass
+            # preserve existing behavior but avoid silent failures in sorting/response
+            # Optionally log the exception here in real deployment
+            continue
 
     results.sort(
-        key=lambda x: x["vtgd"]["strike_rank"],
+        key=lambda x: (x.get("vtgd") or {}).get("strike_rank") or 0,
         reverse=True
     )
 
