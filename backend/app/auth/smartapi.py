@@ -12,11 +12,11 @@ def login():
     mpin = os.getenv("SMART_MPIN")
     totp_secret = os.getenv("SMART_TOTP_SECRET")
 
-    smart = SmartConnect(api_key=api_key)
+        smart = SmartConnect(api_key=api_key)
 
     totp = pyotp.TOTP(totp_secret).now()
 
-        session = smart.generateSession(
+    session = smart.generateSession(
         client_id,
         mpin,
         totp
