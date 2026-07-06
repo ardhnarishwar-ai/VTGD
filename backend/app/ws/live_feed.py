@@ -26,9 +26,9 @@ def start_live_feed():
     token = get_token(symbol)
 
     sws = SmartWebSocketV2(
-        session.authToken,
+        session["jwtToken"],
         os.getenv("SMART_API_KEY"),
-        session.clientCode,
+        session["clientcode"],
         feed_token
     )
 
