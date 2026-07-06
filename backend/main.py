@@ -12,7 +12,8 @@ app = FastAPI(
 )
 @app.on_event("startup")
 def startup():
-    start_live_feed()
+    return
+    # start_live_feed()
 cache = TickCache()
 @app.get("/")
 def home():
