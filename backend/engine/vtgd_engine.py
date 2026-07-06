@@ -1,14 +1,11 @@
+from engine.greeks import Greeks
+from engine.net_weight import net_weight
+from engine.diffusion import diffusion_score
+from engine.safety import safety_score
+from engine.strike_ranking import strike_rank
 """
 VTGD Master Engine
 """
-
-from greeks import Greeks
-from net_weight import net_weight
-from diffusion import diffusion_score
-from safety import safety_score
-from strike_ranking import strike_rank
-
-
 def evaluate(g: Greeks) -> dict:
     """
     Complete VTGD Evaluation
