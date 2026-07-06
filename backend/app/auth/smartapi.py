@@ -16,13 +16,12 @@ def login():
 
     totp = pyotp.TOTP(totp_secret).now()
 
-    session = smart.generateSession(
+        session = smart.generateSession(
         client_id,
         mpin,
         totp
     )
 
-print("SESSION =", session)
+    print(session)
 
-return smart, session
     return smart, session
